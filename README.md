@@ -1,11 +1,15 @@
 # ScreensAPI
-ScreensAPI
 --------------------------How to Deploy-------------------------------------
 1.This is a RestApi project that uses jersey framework and is developed on eclipse IDE.
+
 2.Please configure required jars(jersey,tomcat,json) for jersey framework or use maven which will take care of all these and jar file to be added for JSON is json-simple-1.1.1.jar.
+
 3.To deploy the project on any local system it is recommended to import it in eclipse as a MAVEN project for easy configuration after downloading and extracting the project folder.
+
 4.Connect it with tomcat server using eclipse server configurations.
+
 5.Run it using tomcat server which is configured prior to this step.
+
 NOTE:Please download project as maven to make the deployment process easier.
 
 -----------------------How to use the API-----------------------------------
