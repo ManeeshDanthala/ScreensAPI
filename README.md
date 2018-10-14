@@ -18,14 +18,14 @@ NOTE:Please download project as maven to make the deployment process easier.
 
 -----------------------How to use the API-----------------------------------
 
-(Assuming that the tomcat is installed in the port 8080)
+(Assuming that the tomcat is installed in the port 9090)
 
 Note:First register a theatre inorder to perform any actions on that. 
 
 1.Register Movie theatre (screen):
 
 	Request Method: POST
-	Request URI: http://localhost:8080/uproject/webapi/screens
+	Request URI: http://localhost:9090/uproject/webapi/screens
 	Request Body(sample):
 		{"name":"inox","seatInfo":{"A":{"numberOfSeats":10,"aisleSeats":[0,5,6,9] },"B":{"numberOfSeats":15,"aisleSeats":[0,5,6,9]} } }
 		That is name,seatInfo,numberOfSeats,aisleSeats these parameter names and the JSON pattern must be as mentioned above to be valid.
@@ -34,12 +34,13 @@ Note:First register a theatre inorder to perform any actions on that.
 		if any error - > "enter valid request"    ,status code:400 Bad Request
 	
 	Note: I am restricting from registering a theatre multiple times to prevent duplication.
-![enter image description here][1]{:target='RegisterScreen'}
+
+!["RegisterScreens"][1]{:target='RegisterScreens'}
 
 2.Reserve seats:
 
 	Request Method: POST
-	Request URI: http://localhost:8080/uproject/webapi/screens/{screenName}/reserve
+	Request URI: http://localhost:9090/uproject/webapi/screens/{screenName}/reserve
 	Request Body(sample):
 		{"seats":{"A":[1,2],"B":[6,10] }}
 		Format should be same as above.{"seats":{"row":[seat numbers]}}
@@ -53,7 +54,7 @@ Note:First register a theatre inorder to perform any actions on that.
 3.Get available seats:
 
 	Request Method: GET
-	Request URI: http://localhost:8080/uproject/webapi/screens/{screenName}/seats?status=unreserved
+	Request URI: http://localhost:9090/uproject/webapi/screens/{screenName}/seats?status=unreserved
 	Response Body(sample):
 		{"seats":{"A":[0,3,4,5,6,7,8,9],"B":[0,1,2,3,4,5,7,8,9,11,12,13,14]}}
 	    status code: 200 OK
@@ -63,7 +64,7 @@ Note:First register a theatre inorder to perform any actions on that.
 4.Optimal possible seats selection:
 
     Request Method: GET
-    Request URI: http://localhost:8080/uproject/webapi/screens/{screenName}/seats?numSeats={x}&choice={seat-row-and-number}
+    Request URI: http://localhost:9090/uproject/webapi/screens/{screenName}/seats?numSeats={x}&choice={seat-row-and-number}
     Response Body(sample):
      if possible ->
 		{"availableSeats":{"B":[3,4,5]}}
@@ -73,7 +74,7 @@ Note:First register a theatre inorder to perform any actions on that.
 !["PossibleSeats"][4]{:target='PossibleSeats'}
 
 
-  [1]: https://he-s3.s3.amazonaws.com/media/uploads/b92f291.png
-  [2]: https://he-s3.s3.amazonaws.com/media/uploads/d2550a2.png
-  [3]: https://he-s3.s3.amazonaws.com/media/uploads/f39fbb4.png
-  [4]: https://he-s3.s3.amazonaws.com/media/uploads/1213830.png
+  [1]: https://he-s3.s3.amazonaws.com/media/uploads/4e55413.png
+  [2]: https://he-s3.s3.amazonaws.com/media/uploads/60402f1.png
+  [3]: https://he-s3.s3.amazonaws.com/media/uploads/7342e87.png
+  [4]: https://he-s3.s3.amazonaws.com/media/uploads/81bfa20.png
